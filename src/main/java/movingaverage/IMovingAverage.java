@@ -1,5 +1,7 @@
 package movingaverage;
 
+import java.util.List;
+
 public interface IMovingAverage {
 
     /**
@@ -30,6 +32,12 @@ public interface IMovingAverage {
      * @return Moving average of all the elements added till now.
      */
     double movingAverage();
+
+    /**
+     *
+     * @return All the elements as List
+     */
+    List<Integer> getAllElements();
 
     default double getAverage(int maxSum, int minSum, int lastNElements) {
         if (lastNElements == 0) {

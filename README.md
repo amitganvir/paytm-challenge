@@ -10,13 +10,23 @@ Solution for getting moving average of elements(Integers).
    - **MovingAverageWithMap.java**
     Implementation of IMovingAverage that uses a HashMap to save elements.
     
-    - Add element is a constant time operation i.e. O(1)
-    - Get element is a constant time operation i.e. O(1)
-    - Idea is to save the elements in a map on every add element operation:
-           key = currentNumberOfElements
-           value = elements + sumOfElementsTillNow
-    - Average is computed as follows:
-         for given numbers added 1,2,3,4,5,6,7,8,9,10 map will looks like this:
+    - Add element is a constant time and space operation i.e. O(1)
+    - Get element is a constant time and space operation i.e. O(1)
+    - Get all elements as List is a O(N) time and O(N) space operation.
+    - Caltulation of moving average is constant time and space operation i.e. O(1)
+    
+   **Moving Average Calculation:**
+    
+      The idea is to save the element in a map on every add element operation. 
+      Instead of saving only the element, I am saving the element + sum of all previous elements in the map.
+      So, at every position key, the value is going to the element at that position plus the sum of all the elements added previously.
+           
+            key = currentNumberOfElements
+            value = elements + sumOfElementsTillNow
+            
+   **Example**
+   
+      Given numbers added 1,2,3,4,5,6,7,8,9,10 map will looks like:
             10 ->  55
             9  ->  45
             8  ->  36
@@ -28,23 +38,21 @@ Solution for getting moving average of elements(Integers).
             2  ->  3
             1  ->  1
          
-         for computing moving average of last N elements, lets say, N = 3 
+      For computing moving average of last N elements, lets say, N = 3, here are the steps
+        - Step 1: 
             Get the value for the max number of elements added i.e. 10th element, value = 55
+        - Step 2:
             Get the value of the (numberOfElements - 3) i.e. 10 - 3 = 7th elment, value = 28
+        - Step 3:
+            Find the average using the formula: (55 - 28)/3
          
-         Average is computed using the formula: (55 - 28)/3
-         
-         Runtime Complexity:
-            Average computation is a constant time operation O(1)
-    
-    This implementation can compute the average of last N itmes added when N is less than total elements.
-     
-           
-   - **MovingAverageWithList**
-    Implementation of IMovingAverage that uses ArrayList as collection to save elements.
+   **Time Complexity is O(1)**
    
-    - This implementaion uses a instance variable to save the sum of elements added so far and another variable to store numberOfElements added till now.
-    - Add element is a constant time operation i.e. O(1)
-    - Get element is a constant time operation i.e. O(1)
-    - Moving average is computed as (totalSum/numberOfElements). This is a constant time operation O(1)
-    - This implementation only gives moving average of all the elements. It does not have the capability to give average of last X elements,where X is a number less than total size.
+        Step1 and Step2 are map lookups and hence have a constant time O(1) complexity
+        Step3 is a divide operation and hence its a constant time O(1) complexity
+   
+   **Space Complexity is O(N) where N is the total elements added**   
+   
+   
+**Testing**
+    - MovingAverageWithMapTest has test cases with different scenarios.

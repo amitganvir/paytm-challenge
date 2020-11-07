@@ -1,7 +1,6 @@
 package movingaverage;
 
-import java.util.LinkedHashMap;
-import java.util.Map;
+import java.util.*;
 
 public class MovingAverageWithMap implements IMovingAverage {
 
@@ -79,5 +78,22 @@ public class MovingAverageWithMap implements IMovingAverage {
     @Override
     public double movingAverage() {
         return getAverage(elementMap.getOrDefault(numberOfElements, 0), 0, numberOfElements);
+    }
+
+    @Override
+    public List<Integer> getAllElements() {
+
+        if (elementMap.isEmpty()) {
+            return Collections.emptyList();
+        }
+
+        List<Integer> elementList = new ArrayList<>();
+        for (Integer key: elementMap.keySet()) {
+
+            int currentNumber = elementMap.get(key) - elementMap.getOrDefault(key-1, 0);
+            elementList.add(currentNumber);
+        }
+
+        return elementList;
     }
 }
