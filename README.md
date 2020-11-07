@@ -13,7 +13,7 @@ Solution for getting moving average of elements(Integers).
     - Add element is a constant time and space operation i.e. O(1)
     - Get element is a constant time and space operation i.e. O(1)
     - Get all elements as List is a O(N) time and O(N) space operation.
-    - Caltulation of moving average is constant time and space operation i.e. O(1)
+    - Calculation of moving average is constant time and space operation i.e. O(1)
     
    **Moving Average Calculation:**
     
@@ -51,7 +51,9 @@ Solution for getting moving average of elements(Integers).
         Step1 and Step2 are map lookups and hence have a constant time O(1) complexity
         Step3 is a divide operation and hence its a constant time O(1) complexity
    
-   **Space Complexity is O(N) where N is the total elements added**   
+   **Space Complexity is O(1) as only three variables are used every time to compute the average**
+    
+   ``NOTE: I am not taking into account the space required to save elements while deriving the space complexity of moving average computation.`` 
    
    
 **Testing**
