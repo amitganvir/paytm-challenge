@@ -51,10 +51,8 @@ Solution for getting moving average of elements(Integers).
         Step1 and Step2 are map lookups and hence have a constant time O(1) complexity
         Step3 is a divide operation and hence its a constant time O(1) complexity
    
-   **Space Complexity is O(1) as only three variables are used every time to compute the average**
-    
-   ``NOTE: I am not taking into account the space required to save elements while deriving the space complexity of moving average computation.`` 
-   
+   **Space Complexity is O(N)**
+       
    
 **Testing**
     - MovingAverageWithMapTest has test cases with different scenarios.
