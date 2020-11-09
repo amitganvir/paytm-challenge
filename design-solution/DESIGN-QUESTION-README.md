@@ -50,6 +50,8 @@ Design A Google Analytic like Backend System. We need to provide Google Analytic
  2. AWS ElasticSearch gives high performance when marchant is doing queries for gaining insights.
  
  
+
+
 **Alternate Technologies that can also be used**
 
 Apache Kafka can be used instead AWS Kinesis Data Firehose to push event. 
