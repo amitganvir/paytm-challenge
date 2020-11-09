@@ -49,10 +49,7 @@ Design A Google Analytic like Backend System. We need to provide Google Analytic
  1. AWS Kinesis Data Firehose stores Raw Events in S3 bucket. This is a source of truth in cases where we have to reprocess the data in case there is some update or issue in the aggregation step.
  2. AWS ElasticSearch gives high performance when marchant is doing queries for gaining insights.
  
- 
-
-
-**Alternate Technologies that can also be used**
+ <H4>Alternate Technologies that can also be used</H4>
 
 Apache Kafka can be used instead AWS Kinesis Data Firehose to push event. 
 We can have dedicated topics to process a given type of event and can have dedicated Kafka Brokers to handle growing traffic.
